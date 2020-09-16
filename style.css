@@ -672,7 +672,7 @@ General Styles
     position: absolute;
     left: 0px;
     font-size: 13px;
-    padding: 8px 10px 8px 10px;
+    padding: 10px 10px 10px 10px;
     color: #ffffff;
     background-color: rgba(25, 25, 25, 0.2);
   }
@@ -680,8 +680,8 @@ General Styles
     position: absolute;
     right: 0px;
     font-weight: 800;
-    padding: 3px 10px 2px;
-    color: grey;
+    padding: 10px 10px 10px;
+    /*color: grey;  3px 10px 2px; acima */
     font-size: 15px;
   }
   .progress-bar {
@@ -717,7 +717,7 @@ General Styles
     -moz-transform: translateY(0px);
   }
   .project-item a {
-    cursor: url('../img/projects2.cur'), projetos !important;
+    /*cursor: url('../img/projects2.cur'), projetos !important;  */
     border-radius: 6px;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;

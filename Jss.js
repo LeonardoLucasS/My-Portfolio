@@ -79,5 +79,5 @@ $(".link-page").on('click', function(event){
 });
   //end of document ready
   
-// });
+//});
 //End of window load

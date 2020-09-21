@@ -115,7 +115,7 @@ General Styles
   }
   
   .main-menu-list a:hover{
-    color: red;
+    color: #9400D3;
     border: 0px solid transparent!important;
     text-decoration: none;
     padding-left: 30px; 
@@ -828,7 +828,7 @@ General Styles
    width: 100%; 
   }
   .form-send:hover{
-    background: #d9212a !important;
+    background: #69057A !important;
   }
   ::-webkit-input-placeholder {
     font-style: italic;

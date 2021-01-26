@@ -1,3 +1,5 @@
+var url = "http://localhost:3000/send"
+
 // Check for Window load
 //$(window).load(function(){
 //Begin Document Ready
@@ -51,30 +53,81 @@ $(".link-page").on('click', function(event){
   });
   
   // Form Validation
-  $("#contact-form").validate({
-    submitHandler: function(form){
-      $.ajax({
-        type: "POST",
-        url: "",
-        data: {
-          "name": $("#contact-form #name").val(),
-          "email": $("#contact-form #email").val(),
-          "subject": $("#contact-form #subject").val(),
-          "message": $("#contact-form #message").val()
-        },
-        datatype: "json",
-        success: function(data) {
-          if(data=="success"){
-            alert("Your message was sent successfully");
-          }
-          else{
-            alert("Error sending your message");
-          }
-        }
-      })
-    }
-  });
+  // $("#contact-form").validate({
+  //   submitHandler: function(form){
+  //     $.ajax({
+  //       type: "POST",
+  //       url: "",
+  //       data: {
+  //         "name": $("#contact-form #name").val(),
+  //         "email": $("#contact-form #email").val(),
+  //         "subject": $("#contact-form #subject").val(),
+  //         "message": $("#contact-form #message").val()
+  //       },
+  //       datatype: "json",
+  //       success: function(data) {
+  //         if(data=="success"){
+  //           alert("Your message was sent successfully");
+  //         }
+  //         else{
+  //           alert("Error sending your message");
+  //         }
+  //       }
+  //     })
+  //   }
+  // });
   // End of form validation
+
+
+
+  document.getElementById('contact-form').addEventListener('submit', submitForm);
+   
+  function submitForm(e) {
+      e.preventDefault();
+
+      var x = document.getElementById("email");
+      var y = document.getElementById("message");
+      var z = document.getElementById("subject");
+    
+      // Get values
+      var email = x.value
+      var sub =   y.value  
+      var txt =   z.value   
+      // Save 
+    
+      saveContact(email,sub,txt);
+   
+      
+      
+      //document.querySelector('.alert').style.display = 'block';
+
+      // Hide alert after 3 seconds
+      // setTimeout(function () {
+      //   document.querySelector('.alert').style.display = 'none';
+      // }, 3000);
+    
+    }
+
+    async function saveContact(email, sub, txt){
+      try{
+          const response = await fetch(url, {
+              headers: {
+                  'Content-Type': 'application/json'
+                },
+                method: 'get',
+                body: JSON.stringify({
+                  email:email,
+                  sub:sub,
+                  txt:txt
+              })
+          });
+          const data = await response.json();
+          console.log(data)
+        }catch (error) {
+          console.log(error);
+        }
+      }
+  
   
 });
   //end of document ready
